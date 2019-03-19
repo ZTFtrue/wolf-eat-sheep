@@ -1,0 +1,38 @@
+{
+  "zh-Hans": {
+    "aot": true,
+    "outputPath": "static/ztftrue-angular-zh-Hans/",
+    "i18nFile": "src/locale/messages.zh-Hans.xlf",
+    "i18nFormat": "xlf",
+    "i18nLocale": "zh-Hans"
+  },
+  "production-zh-Hans": {
+    "fileReplacements": [{
+      "replace": "src/environments/environment.ts",
+      "with": "src/environments/environment.prod.ts"
+    }],
+    "optimization": true,
+    "outputHashing": "all",
+    "sourceMap": false,
+    "extractCss": true,
+    "namedChunks": false,
+    "aot": true,
+    "extractLicenses": true,
+    "vendorChunk": false,
+    "buildOptimizer": true,
+    "outputPath": "static/ztftrue-angular-zh-Hans/",
+    "i18nFile": "src/locale/messages.zh-Hans.xlf",
+    "i18nFormat": "xlf",
+    "i18nLocale": "zh-Hans",
+    "i18nMissingTranslation": "error"
+  }
+
+
+
+  ,
+  "serve": {
+    "zh-Hans": {
+      "browserTarget": "ztftrue-angular:build:zh-Hans"
+    }
+  }
+}

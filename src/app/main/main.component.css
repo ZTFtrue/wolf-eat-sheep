@@ -1,0 +1,120 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.main {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  margin: 0;
+  flex-direction: column;
+}
+
+.content {
+  height: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.1rem solid rgb(240, 240, 240);
+  background-color: white;
+  height: 2.8rem;
+  align-content: center;
+  justify-content: space-between;
+  justify-items: center;
+  flex-shrink: 0;
+}
+
+.menu {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 200px;
+  float: left;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: whitesmoke;
+  border-right: 1px solid ghostwhite;
+  float: left;
+}
+
+.page-menu {
+  width: calc(100vw - 200px)
+}
+
+.page-nomenu {
+  width: 100vw
+}
+
+
+.menu-button {
+  width: 200px;
+  text-align: start;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+}
+
+.menu-item {
+  margin: 0px;
+  flex-shrink: 0;
+}
+
+.menu-switch-button {
+  outline: none;
+  flex-shrink: 0;
+}
+
+
+
+.header-img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  box-shadow: 1px 1px 5px 1px rgb(223, 223, 223);
+}
+
+.user-name {
+  padding: 5px 3px;
+}
+
+.header-img:hover {
+  box-shadow: 1px 1px 5px 1px rgb(196, 196, 196);
+}
+
+.user-menu {
+  width: 200px;
+  margin: 0px;
+  flex-shrink: 0;
+  background-color: beige;
+}
+
+.menu-user-header {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@keyframes animal {
+  0% {}
+
+  50% {}
+
+  100% {
+    background: #81bbffff
+  }
+}

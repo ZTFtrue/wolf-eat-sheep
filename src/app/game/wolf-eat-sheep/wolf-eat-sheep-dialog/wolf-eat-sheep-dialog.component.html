@@ -1,0 +1,38 @@
+<div id="shadow">
+  <span class="title">{{ "wolf-eat-sheep" | translate }}</span>
+  <div class="button-box">
+    <button
+      mat-raised-button
+      color="primary"
+      style="outline: none;"
+      (click)="ok()"
+    >
+      {{ "full-screen-play" | translate }}
+    </button>
+    <button mat-raised-button style="outline: none" (click)="close()">
+      {{ "cloes-game" | translate }}
+    </button>
+  </div>
+  <div>
+    <p style="font-size: 1.2rem;text-align: center">
+      {{ "full-screen-play-tip" | translate }}
+    </p>
+    {{ "how-do-play" | translate }}
+    <p>{{ "how-to-play-one" | translate }}</p>
+    {{ "how-to-play-map" | translate }} <br />
+    <img class="image-1" src="../../../../assets/teach_wolf/map.jpg" /> <br />
+    <span style="color: red">{{ "wolf-move" | translate }}</span>
+    <p>{{ "wolf-move-introduction" | translate }}</p>
+    <img class="image-1" src="../../../../assets/teach_wolf/wolf.jpg" />
+    <img class="image-1" src="../../../../assets/teach_wolf/wolf_cant.jpg" />
+    <p style="color: green;">{{ "sheep-move" | translate }}</p>
+    <p style="color:red;font-size: 1.2rem">{{ "warning" | translate }}</p>
+    <span style="color: blue;"> {{ "victory-or-defeat" | translate }} </span>
+    <p>{{ "victory-or-defeat-introduction" | translate }}</p>
+    <video
+      class="video-wolf"
+      controls
+      src="https://www.ztftrue.com/public/video/wolfeatsheep.mp4"
+    ></video>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8def8481e91291a52f9baa31cbdb313e6a6ca02b" datatype="html">
+        <source></source>
+        <target>你好 i18n!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">An introduction header for this sample</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

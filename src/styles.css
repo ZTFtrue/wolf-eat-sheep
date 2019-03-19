@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+h1 {
+  color: #369;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-weight: lighter;
+}
+body,html {
+  padding: 0px 0px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* everywhere else */
+/* * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+} */
+
+.dialog {
+  /** https://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/ **/
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background-color: blanchedalmond;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 250px;
+  height: 250px;
+}
+
+button{
+  outline: none;
+}
+ /* innnerhtml 需要 */
+* {
+  box-sizing: border-box;
+}
