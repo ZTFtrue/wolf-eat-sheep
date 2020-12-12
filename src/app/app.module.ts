@@ -1,6 +1,6 @@
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LOCALE_ID, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -22,7 +22,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './error/not-found/not-found.component';
 import { MainComponent } from './main/main.component';
 import { WolfEatSheepComponent } from './game/wolf-eat-sheep/wolf-eat-sheep.component';
 import { WolfEatSheepDialogComponent } from './game/wolf-eat-sheep/wolf-eat-sheep-dialog/wolf-eat-sheep-dialog.component';
@@ -40,7 +39,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
     MainComponent,
     WolfEatSheepComponent,
     WolfEatSheepDialogComponent,
