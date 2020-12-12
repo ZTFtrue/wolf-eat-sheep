@@ -22,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: false, useHash: true } // <-- debugging purposes only
+      { enableTracing: false, useHash: true, relativeLinkResolution: 'legacy' } // <-- debugging purposes only
+ // <-- debugging purposes only
     )
   ],
   declarations: [],

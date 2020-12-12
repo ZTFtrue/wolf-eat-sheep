@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WolfEatSheepDialogComponent } from './wolf-eat-sheep-dialog.component';
 
@@ -6,7 +6,7 @@ describe('WolfEatSheepDialogComponent', () => {
   let component: WolfEatSheepDialogComponent;
   let fixture: ComponentFixture<WolfEatSheepDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ WolfEatSheepDialogComponent ]
     })
