@@ -2,15 +2,24 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LOCALE_ID, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatButtonModule, MatButtonToggleModule, MatDialogModule,
-  MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule,
-  MatMenuModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule,
-  MatSelectModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatCheckboxModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './error/not-found/not-found.component';

@@ -4,7 +4,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Node } from './node';
 import { WolfEatSheepDialogComponent } from './wolf-eat-sheep-dialog/wolf-eat-sheep-dialog.component';
 
