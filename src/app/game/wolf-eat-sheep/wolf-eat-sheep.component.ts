@@ -7,13 +7,15 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { Node } from './node';
 import { WolfEatSheepDialogComponent } from './wolf-eat-sheep-dialog/wolf-eat-sheep-dialog.component';
+import { Scene } from 'three';
 
 declare let window: any;
 declare let document: any;
 @Component({
   selector: 'app-wolf-eat-sheep',
   templateUrl: './wolf-eat-sheep.component.html',
-  styleUrls: ['./wolf-eat-sheep.component.css']
+  styleUrls: ['./wolf-eat-sheep.component.css'],
+  providers:[Scene]
 })
 export class WolfEatSheepComponent implements OnInit, AfterViewInit {
   dialogRef = null;
@@ -37,10 +39,13 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
 
   reduceNumber = 50; // 上下
   pointRange = 20;
+  // scene = new Scene();
 
-  constructor(public dialog: MatDialog, private cdref: ChangeDetectorRef) {}
+  constructor(public dialog: MatDialog, private cdref: ChangeDetectorRef,private scene:Scene) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.scene)
+  }
 
   ngAfterViewInit() {
     const _this = this;
