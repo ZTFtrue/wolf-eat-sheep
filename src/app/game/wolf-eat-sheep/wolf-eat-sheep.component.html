@@ -1,16 +1,15 @@
-<div class="tip">
+<!-- <div class="tip">
   <span *ngIf="this.remainSheep!==0||who">{{'remain-sheep'|translate}}{{this.remainSheep}}
   </span>
   <span *ngIf="this.remainSheep===0&&!who">{{'need-move-sheep'|translate}}</span>
   <div style="display: flex;justify-content: center;align-content: center">
-    <!-- <span>{{?:''}}</span> -->
     <span *ngIf="who">{{'who-move-sheep'|translate}}</span>
     <span *ngIf="!who">{{'who-move-wolf'|translate}}</span>
     <img style="height:30px;width:30px;" src="{{who?'../../../assets/wolf_eat_sheep/wolf.png':'../../../assets/wolf_eat_sheep/sheep.png'}}">
   </div>
   <div>
     <span>{{'eat-sheep'|translate}} {{this.eatSheep}}</span>
-    <!-- <button mat-raised-button style="outline: none" (click)="exitFullScren()"> 取消全屏</button> -->
   </div>
-</div>
-<canvas id="myCanvas" (click)="canvasClick($event)"></canvas>
+</div> -->
+<div #three></div>
+<!-- <canvas id="myCanvas" (click)="canvasClick($event)"></canvas> -->
