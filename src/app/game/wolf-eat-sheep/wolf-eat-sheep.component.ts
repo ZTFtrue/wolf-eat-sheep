@@ -53,7 +53,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
 
   init() {
     this.roadLineMaterial = new MeshBasicMaterial({
-      color: 0xff00ff,
+      color: 0xBE9F79,
       combine: MultiplyOperation,
       reflectivity: 1,
     });
@@ -102,13 +102,31 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     mesh.rotation.x = - Math.PI / 2;
     mesh.receiveShadow = true;
     this.scene.add(mesh);
-    let material = new MeshBasicMaterial({
-      color: 0xff00ff,
-      combine: MultiplyOperation,
-      reflectivity: 1,
-    });
-    let cubeV = new Mesh(new BoxBufferGeometry(50, 20, 2000), material);
-    const cube = new Mesh(new BoxBufferGeometry(50, 20, 3700), material);
+
+    this.addBoxLine();
+    this.addApexRight();
+    this.addApexLeft();
+    this.renderer = new WebGLRenderer({ antialias: true });
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.container.appendChild(this.renderer.domElement);
+    this.renderer.outputEncoding = sRGBEncoding;
+    this.renderer.shadowMap.enabled = true;
+    // controls
+    const controls = new OrbitControls(this.camera, this.renderer.domElement);
+    controls.maxPolarAngle = Math.PI * 0.5;
+    controls.minDistance = 100;
+    controls.maxDistance = 5000;
+
+    window.addEventListener('resize', (event) => { this.onWindowResize() }, false);
+    // const gui = new GUI();
+    // this.render();
+    this.animate();
+  }
+
+  addBoxLine() {
+    let cubeV = new Mesh(new BoxBufferGeometry(50, 20, 2000), this.roadLineMaterial);
+    const cube = new Mesh(new BoxBufferGeometry(50, 20, 3700), this.roadLineMaterial);
     cubeV.position.set(0, 0, 0);
     cube.position.set(0, 0, 0);
     cube.rotateY(Math.PI * 0.5);
@@ -116,104 +134,71 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     this.scene.add(cube);
     // set vertical line
     for (let i = -2; i < 3; i++) {
-      const cube = new Mesh(new BoxBufferGeometry(50, 20, 2000), material);
+      const cube = new Mesh(new BoxBufferGeometry(50, 20, 2000), this.roadLineMaterial);
       cube.position.set(0, 0, 500 * i);
       cube.rotateY(Math.PI * 0.5);
       this.scene.add(cube);
     }
     // set horizontal line
     for (let i = -2; i < 3; i++) {
-      const cube = new Mesh(new BoxBufferGeometry(50, 20, 2000), material);
+      const cube = new Mesh(new BoxBufferGeometry(50, 20, 2000), this.roadLineMaterial);
       cube.position.set(500 * i, 0, 0);
       this.scene.add(cube);
     }
     // diagonal , shoud use circle
-    let inclinedLine1 = new Mesh(new BoxBufferGeometry(50, 20, 2855), material);
+    let inclinedLine1 = new Mesh(new BoxBufferGeometry(50, 20, 2855), this.roadLineMaterial);
     inclinedLine1.position.set(0, 0, 0);
     inclinedLine1.rotateY(Math.PI * 0.25);
     this.scene.add(inclinedLine1);
-    let inclinedLine2 = new Mesh(new BoxBufferGeometry(50, 20, 2855), material);
+    let inclinedLine2 = new Mesh(new BoxBufferGeometry(50, 20, 2855), this.roadLineMaterial);
     inclinedLine2.position.set(0, 0, 0);
     inclinedLine2.rotateY(Math.PI * -0.25);
     this.scene.add(inclinedLine2);
     {
-      let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 2065), material);
+      let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 2065), this.roadLineMaterial);
       inclinedLeftTopRightDown.position.set(720, 0, -280);
       inclinedLeftTopRightDown.rotateY(Math.PI * 0.25);
       this.scene.add(inclinedLeftTopRightDown);
-      let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 2065), material);
+      let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 2065), this.roadLineMaterial);
       inclinedLeftDownRightTop.position.set(720, 0, 280);
       inclinedLeftDownRightTop.rotateY(Math.PI * -0.25);
       this.scene.add(inclinedLeftDownRightTop);
     }
 
     {
-      let inclinedRightTopLeftDown = new Mesh(new BoxBufferGeometry(50, 20, 2065), material);
+      let inclinedRightTopLeftDown = new Mesh(new BoxBufferGeometry(50, 20, 2065), this.roadLineMaterial);
       inclinedRightTopLeftDown.position.set(-720, 0, -280);
       inclinedRightTopLeftDown.rotateY(Math.PI * -0.25);
       this.scene.add(inclinedRightTopLeftDown);
-      let inclinedRightBottomLeftTop = new Mesh(new BoxBufferGeometry(50, 20, 2065), material);
+      let inclinedRightBottomLeftTop = new Mesh(new BoxBufferGeometry(50, 20, 2065), this.roadLineMaterial);
       inclinedRightBottomLeftTop.position.set(-720, 0, 280);
       inclinedRightBottomLeftTop.rotateY(Math.PI * 0.25);
       this.scene.add(inclinedRightBottomLeftTop);
     }
-    this.addApexRight();
-    this.addApexLeft();
-    this.renderer = new WebGLRenderer({ antialias: true });
-    this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-    this.container.appendChild(this.renderer.domElement);
-
-    this.renderer.outputEncoding = sRGBEncoding;
-
-    this.renderer.shadowMap.enabled = true;
-
-    // controls
-    const controls = new OrbitControls(this.camera, this.renderer.domElement);
-    controls.maxPolarAngle = Math.PI * 0.5;
-    controls.minDistance = 100;
-    controls.maxDistance = 5000;
-
-    // performance monitor
-
-    window.addEventListener('resize', (event) => { this.onWindowResize() }, false);
-    // const gui = new GUI();
-    // this.render();
-    this.animate();
   }
+
   addApexRight() {
-    let material = new MeshBasicMaterial({
-      color: 0xff00ff,
-      combine: MultiplyOperation,
-      reflectivity: 1,
-    });
-    const cube1 = new Mesh(new BoxBufferGeometry(50, 20, 920), material);
+    const cube1 = new Mesh(new BoxBufferGeometry(50, 20, 920), this.roadLineMaterial);
     cube1.position.set(1450, 0, 0);
     this.scene.add(cube1);
-    let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 650), material);
+    let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 650), this.roadLineMaterial);
     inclinedLeftTopRightDown.position.set(1660, 0, -235);
     inclinedLeftTopRightDown.rotateY(Math.PI * 0.25);
     this.scene.add(inclinedLeftTopRightDown);
-    let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 650), material);
+    let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 650), this.roadLineMaterial);
     inclinedLeftDownRightTop.position.set(1660, 0, 235);
     inclinedLeftDownRightTop.rotateY(Math.PI * -0.25);
     this.scene.add(inclinedLeftDownRightTop);
   }
   addApexLeft() {
-    let material = new MeshBasicMaterial({
-      color: 0xff00ff,
-      combine: MultiplyOperation,
-      reflectivity: 1,
-    });
-    const cube1 = new Mesh(new BoxBufferGeometry(50, 20, 920), material);
+    const cube1 = new Mesh(new BoxBufferGeometry(50, 20, 920), this.roadLineMaterial);
     cube1.position.set(-1450, 0, 0);
     this.scene.add(cube1);
-    let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 650), material);
+    let inclinedLeftTopRightDown = new Mesh(new BoxBufferGeometry(50, 20, 650), this.roadLineMaterial);
     inclinedLeftTopRightDown.position.set(-1660, 0, -235);
     inclinedLeftTopRightDown.rotateY(Math.PI * -0.25);
     this.scene.add(inclinedLeftTopRightDown);
-    let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 650), material);
+    let inclinedLeftDownRightTop = new Mesh(new BoxBufferGeometry(50, 20, 650), this.roadLineMaterial);
     inclinedLeftDownRightTop.position.set(-1660, 0, 235);
     inclinedLeftDownRightTop.rotateY(Math.PI * 0.25);
     this.scene.add(inclinedLeftDownRightTop);
