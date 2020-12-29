@@ -182,9 +182,25 @@ export class OrbitControls {
 		// force an update at start
 
 		this.update();
+		// THREE.
+		// THREE=Object.create(THREE.EventDispatcher.prototype) ;
+		// THREE['OrbitControls'].prototype.constructor = THREE['OrbitControls'];
+		// THREE['MapControls'] = function (object, domElement) {
 
+		// 	// 	THREE.OrbitControls.call(this, object, domElement);
 
+		// 	// 	this.screenSpacePanning = false; // pan orthogonal to world-space direction camera.up
 
+		// 	// 	this.mouseButtons.LEFT = THREE.MOUSE.PAN;
+		// 	// 	this.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
+
+		// 	// 	this.touches.ONE = THREE.TOUCH.PAN;
+		// 	// 	this.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
+
+		// };
+
+		// THREE['MapControls'].prototype = Object.create(THREE.EventDispatcher.prototype);
+		// THREE['MapControls'].prototype.constructor = THREE['MapControls'];
 	}
 	// this method is exposed, but perhaps it would be better if we can make it private...
 	update() {
@@ -1172,8 +1188,6 @@ export class OrbitControls {
 
 	}
 
-	// THREE.OrbitControls.prototype = Object.create(THREE.EventDispatcher.prototype);
-	// THREE.OrbitControls.prototype.constructor = THREE.OrbitControls;
 
 
 	// // This set of controls performs orbiting, dollying (zooming), and panning.
@@ -1184,22 +1198,7 @@ export class OrbitControls {
 	// //    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
 	// //    Pan - left mouse, or arrow keys / touch: one-finger move
 
-	// THREE.MapControls = function (object, domElement) {
 
-	// 	THREE.OrbitControls.call(this, object, domElement);
-
-	// 	this.screenSpacePanning = false; // pan orthogonal to world-space direction camera.up
-
-	// 	this.mouseButtons.LEFT = THREE.MOUSE.PAN;
-	// 	this.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
-
-	// 	this.touches.ONE = THREE.TOUCH.PAN;
-	// 	this.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
-
-	// };
-
-	// THREE.MapControls.prototype = Object.create(THREE.EventDispatcher.prototype);
-	// THREE.MapControls.prototype.constructor = THREE.MapControls;
 
 }
 

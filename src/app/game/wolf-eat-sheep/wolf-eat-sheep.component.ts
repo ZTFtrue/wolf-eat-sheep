@@ -62,16 +62,15 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     // camera
     this.camera = new PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 10000);
     this.camera.position.set(0, 5000, 0);
-    // this.camera.rotateX(-(Math.PI / 180) * 90);
+    // this.camera.rotateX(Math.PI * -0.025);
+
+
     // lights
     this.scene.add(new AmbientLight(0x666666));
-
     const light = new DirectionalLight(0xdfebff, 1);
     light.position.set(50, 200, 100);
     light.position.multiplyScalar(1.3);
-
     light.castShadow = true;
-
     light.shadow.mapSize.width = 1024;
     light.shadow.mapSize.height = 1024;
 
@@ -115,8 +114,8 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     // controls
     const controls = new OrbitControls(this.camera, this.renderer.domElement);
     controls.maxPolarAngle = Math.PI * 0.5;
-    controls.minDistance = 100;
-    controls.maxDistance = 5000;
+    // controls.minDistance = 100;
+    // controls.maxDistance = 5000;
 
     window.addEventListener('resize', (event) => { this.onWindowResize() }, false);
     // const gui = new GUI();
