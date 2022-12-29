@@ -31,9 +31,9 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
   r: number = 2; // 棋子大小参数
   lineDistance: number = 0;// 间距,线的距离
   isPlaying = false;
-  audioSheepDied = new Audio(this.baseHref + '../../assets/sound/sheep_died.ogg');
-  audioSheepMove = new Audio(this.baseHref + '../../assets/sound/sheep_move.mp3');
-  audioWolfMove = new Audio(this.baseHref + '../../assets/sound/wolf_move.ogg');
+  audioSheepDied = new Audio('../../assets/sound/sheep_died.ogg');
+  audioSheepMove = new Audio('../../assets/sound/sheep_move.mp3');
+  audioWolfMove = new Audio('../../assets/sound/wolf_move.ogg');
   // audio.play();
   constructor(public dialog: MatDialog, @Inject(APP_BASE_HREF) public baseHref: string) {
     console.log(this.baseHref)
