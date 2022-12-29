@@ -1,0 +1,40 @@
+#shadow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+p {
+  text-indent: 1em;
+}
+
+.title {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.video-wolf {
+  width: 100%;
+}
+
+.image-1 {
+  height: 30vw;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .image-1 {
+    height:  70vw;
+  }
+}

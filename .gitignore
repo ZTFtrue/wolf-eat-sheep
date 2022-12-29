@@ -44,4 +44,4 @@ testem.log
 Thumbs.db
 package-lock.json
 
-/static
+.angular/

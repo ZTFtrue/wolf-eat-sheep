@@ -1,8 +1,5 @@
 {
   "wolf-eat-sheep": "Wolf eat sheep",
-  "cloes-game": "Close game",
-  "full-screen-play": "Fulll screen (Play)",
-  "full-screen-play-tip": "The game needs full screen, please click the [full screen] button.",
   "how-do-play": "Introduction to play:",
   "how-to-play-one": "The map is pre-placed with two wolves (red) and eight sheeps (black), which are first walked by the wolf.",
   "how-to-play-map": "Map",
@@ -13,8 +10,6 @@
   "victory-or-defeat": "Victory or defeat:",
   "victory-or-defeat-introduction": "If neither wolf can move, the sheep wins.",
   "remain-sheep": "Sheep not placed in the map: ",
-  "need-move-sheep": "Move your sheep",
-  "who-move-sheep":"It’s the turn of the wolf.",
-  "who-move-wolf":"It’s the turn of the sheep.",
-  "eat-sheep":"Sheep eaten by wolves: "
+  "eat-sheep":"Sheep eaten by wolves: ",
+  "help":"Help"
 }

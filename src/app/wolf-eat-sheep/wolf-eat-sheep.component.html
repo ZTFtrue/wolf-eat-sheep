@@ -1,0 +1,17 @@
+<div class="screen-grass">
+  <div class="tip">
+    <span>{{'remain-sheep'|translate}}: {{this.remainSheep}}
+    </span>
+    <div class="run-tip">
+      <button mat-flat-button color="primary" style="outline: none"
+        (click)="startGame()">{{this.isPlaying?'Repaly':'Play'}}</button>
+    </div>
+    <a routerLink="/help" routerLinkActive="active" ariaCurrentWhenActive="page">{{'help'|translate}}</a>
+    <span>{{'eat-sheep'|translate}}: {{this.eatSheep}}</span>
+  </div>
+  <canvas id="myCanvas" height="0px" width="0px"></canvas>
+  <div [style.width.px]="m" [style.height.px]="m"
+    class="{{this.whoRun?'animation-for-runner-wolf':'animation-for-runner-sheep'}}">
+
+  </div>
+</div>

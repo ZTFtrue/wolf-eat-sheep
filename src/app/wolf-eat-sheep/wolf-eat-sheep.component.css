@@ -1,0 +1,88 @@
+.tip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  justify-items: center;
+  width: 100vw;
+  user-select: none;
+  color: blue;
+  flex-wrap: nowrap;
+  position: relative;
+  background-color: rgba(250, 235, 215, 0.582);
+  z-index: 10;
+  font-weight: bold;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  top: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0px 10px;
+}
+
+.run-tip {
+  width: 100px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+#myCanvas {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.screen-grass {
+  background-image: url('../../assets/wolf_eat_sheep/grass_back.jpg');
+  background-repeat: repeat;
+  width: 100vw;
+  height: 100vh;
+  background-size: 10% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+.animation-for-runner-sheep {
+  bottom: 10px;
+  position: fixed;
+  right: 10px;
+  /* animation-name: runner; */
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  animation-duration: 2s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  background-image: url('../../assets/wolf_eat_sheep/sheep.png');
+  background-size: 100% 100%;
+}
+
+.animation-for-runner-wolf {
+  bottom: 10px;
+  /* animation-name: runner; */
+  z-index: 10;
+  position: fixed;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  animation-duration: 1s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  background-image: url('../../assets/wolf_eat_sheep/wolf.png');
+  background-size: 100% 100%;
+}
+
+@keyframes runner {
+  from {
+    transform: scale(1) skew(-10deg, -10deg) rotate(-0.1turn);
+  }
+
+  to {
+    transform: scale(0.8) skew(10deg, -10deg) rotate(0.1turn);
+  }
+}

@@ -1,8 +1,6 @@
 {
   "wolf-eat-sheep": "狼吃羊",
   "cloes-game": "关闭游戏",
-  "full-screen-play": "全屏(开始)",
-  "full-screen-play-tip": "游戏需要全屏,请点击全屏按钮。",
   "how-do-play": "玩法:",
   "how-to-play-one": "地图预先放置两只狼(红色)和8只羊(黑色),由狼先走。",
   "how-to-play-map": "地图",
@@ -13,8 +11,6 @@
   "victory-or-defeat": "胜负:",
   "victory-or-defeat-introduction": "如果两只狼均无法移动，羊胜。如果羊被吃光，狼胜。",
   "remain-sheep": "未放入地图的羊 ",
-  "need-move-sheep": "现在你需要移动你的棋子",
-  "who-move-sheep":"该狼走了",
-  "who-move-wolf":"到羊走了",
-  "eat-sheep":"吃掉的羊: "
+  "eat-sheep": "吃掉的羊: ",
+  "help": "帮助"
 }

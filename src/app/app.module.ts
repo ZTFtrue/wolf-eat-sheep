@@ -23,8 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { WolfEatSheepComponent } from './game/wolf-eat-sheep/wolf-eat-sheep.component';
-import { WolfEatSheepDialogComponent } from './game/wolf-eat-sheep/wolf-eat-sheep-dialog/wolf-eat-sheep-dialog.component';
+import { WolfEatSheepComponent } from './wolf-eat-sheep/wolf-eat-sheep.component';
+import { WolfEatSheepHelpComponent } from './wolf-eat-sheep-help/wolf-eat-sheep-help.component';
 
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -41,7 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     MainComponent,
     WolfEatSheepComponent,
-    WolfEatSheepDialogComponent,
+    WolfEatSheepHelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,8 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  entryComponents: [ WolfEatSheepDialogComponent
-  ],
+  entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [], // { provide: LOCALE_ID, useValue: 'zh-Hans' }
   bootstrap: [AppComponent]
