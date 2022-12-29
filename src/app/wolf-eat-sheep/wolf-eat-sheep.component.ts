@@ -4,6 +4,7 @@ import {
   OnInit
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+// @ts-ignore
 import { Bitmap, Graphics, Shadow, Shape, Stage, Ticker } from "@createjs/easeljs";
 import { Node } from './node';
 import { APP_BASE_HREF } from '@angular/common';
@@ -83,7 +84,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     let w = m / this.r;
     this.allNode.forEach((item) => {
       var bitmap = new Bitmap(this.baseHref + "../../assets/wolf_eat_sheep/sheep.png");
-      bitmap.addEventListener("click", (event) => {
+      bitmap.addEventListener("click", (event:MouseEvent) => {
         this.canvasClick(event);
       });
       let scale = m / (bitmap.image.width * this.r);
@@ -98,7 +99,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
 
     this.initSheepNode.forEach((item) => {
       var bitmap = new Bitmap(this.baseHref + "../../assets/wolf_eat_sheep/sheep.png");
-      bitmap.addEventListener("click", (event) => {
+      bitmap.addEventListener("click", (event:MouseEvent) => {
         this.canvasClick(event);
       });
       let scale = m / (bitmap.image.width * this.r);
@@ -112,7 +113,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     });
     this.initWolfNode.forEach((item) => {
       var bitmap = new Bitmap(this.baseHref + "../../../assets/wolf_eat_sheep/wolf.png");
-      bitmap.addEventListener("click", (event) => {
+      bitmap.addEventListener("click", (event:MouseEvent) => {
         this.canvasClick(event);
       });
       this.wolfNode.push(bitmap);
@@ -251,7 +252,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
       }
       this.stage.update();
     } else {
-      if (event.target['type'] === 1) {
+      if (b['type'] === 1) {
         return;
       } else if (b['type'] === 2) {
         if (this.remainSheep !== 0) {
@@ -284,7 +285,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
           }
         } else if (this.remainSheep > 0) {
           var bitmap = new Bitmap(this.baseHref + "../../../assets/wolf_eat_sheep/sheep.png");
-          bitmap.addEventListener("click", (event) => {
+          bitmap.addEventListener("click", (event:MouseEvent) => {
             this.canvasClick(event);
           });
           bitmap.scaleX = b['scale'];

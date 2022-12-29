@@ -10,7 +10,7 @@
     <span>{{'eat-sheep'|translate}}: {{this.eatSheep}}</span>
   </div>
   <canvas id="myCanvas" height="0px" width="0px"></canvas>
-  <div [style.width.px]="m" [style.height.px]="m"
+  <div [style.width.px]="lineDistance" [style.height.px]="lineDistance"
     class="{{this.whoRun?'animation-for-runner-wolf':'animation-for-runner-sheep'}}">
 
   </div>

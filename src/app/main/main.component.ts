@@ -1,22 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  title = 'ztftrue';
-  currentRouterIndex = 0;
-  menuStatus = true;
-  menuData = [];
-  userEmail;
-  session;
-  disabledButton = false;
+  title = 'Wolf Eat Sheep';
   constructor() { }
-  getMenu() {
-    // 获取菜单时,验证头是否需要刷新
-  }
+
   ngOnInit() {
   }
 }
