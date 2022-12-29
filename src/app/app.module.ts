@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule, PlatformLocation } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -78,7 +78,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [], // { provide: LOCALE_ID, useValue: 'zh-Hans' }
+  providers: [  {
+    provide: APP_BASE_HREF,
+    useFactory: (s: PlatformLocation) => s.getBaseHrefFromDOM(),
+    deps: [PlatformLocation]
+  }], // { provide: LOCALE_ID, useValue: 'zh-Hans' }
   bootstrap: [AppComponent]
 })
 export class AppModule { }

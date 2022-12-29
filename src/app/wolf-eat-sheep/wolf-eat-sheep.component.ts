@@ -1,10 +1,12 @@
 import {
   AfterViewInit, Component,
+  Inject,
   OnInit
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Bitmap, Graphics, Shadow, Shape, Stage, Ticker } from "@createjs/easeljs";
 import { Node } from './node';
+import { APP_BASE_HREF } from '@angular/common';
 
 declare let document: any;
 @Component({
@@ -29,11 +31,13 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
   r: number = 2; // 棋子大小参数
   lineDistance: number = 0;// 间距,线的距离
   isPlaying = false;
-  audioSheepDied = new Audio('../../assets/sound/sheep_died.ogg');
-  audioSheepMove = new Audio('../../assets/sound/sheep_move.mp3');
-  audioWolfMove = new Audio('../../assets/sound/wolf_move.ogg');
+  audioSheepDied = new Audio(this.baseHref + '../../assets/sound/sheep_died.ogg');
+  audioSheepMove = new Audio(this.baseHref + '../../assets/sound/sheep_move.mp3');
+  audioWolfMove = new Audio(this.baseHref + '../../assets/sound/wolf_move.ogg');
   // audio.play();
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, @Inject(APP_BASE_HREF) public baseHref: string) {
+    console.log(this.baseHref)
+  }
 
   ngOnInit() {
 
@@ -78,7 +82,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
   drwaNode(m: number) {
     let w = m / this.r;
     this.allNode.forEach((item) => {
-      var bitmap = new Bitmap("../../assets/wolf_eat_sheep/sheep.png");
+      var bitmap = new Bitmap(this.baseHref + "../../assets/wolf_eat_sheep/sheep.png");
       bitmap.addEventListener("click", (event) => {
         this.canvasClick(event);
       });
@@ -93,7 +97,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     })
 
     this.initSheepNode.forEach((item) => {
-      var bitmap = new Bitmap("../../assets/wolf_eat_sheep/sheep.png");
+      var bitmap = new Bitmap(this.baseHref + "../../assets/wolf_eat_sheep/sheep.png");
       bitmap.addEventListener("click", (event) => {
         this.canvasClick(event);
       });
@@ -107,7 +111,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
       this.stage.addChild(bitmap);
     });
     this.initWolfNode.forEach((item) => {
-      var bitmap = new Bitmap("../../../assets/wolf_eat_sheep/wolf.png");
+      var bitmap = new Bitmap(this.baseHref + "../../../assets/wolf_eat_sheep/wolf.png");
       bitmap.addEventListener("click", (event) => {
         this.canvasClick(event);
       });
@@ -279,7 +283,7 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
             }
           }
         } else if (this.remainSheep > 0) {
-          var bitmap = new Bitmap("../../../assets/wolf_eat_sheep/sheep.png");
+          var bitmap = new Bitmap(this.baseHref + "../../../assets/wolf_eat_sheep/sheep.png");
           bitmap.addEventListener("click", (event) => {
             this.canvasClick(event);
           });
