@@ -1,0 +1,15 @@
+{
+  "wolf-eat-sheep": "Wolf eat sheep",
+  "how-do-play": "Introduction to play:",
+  "how-to-play-one": "The map is pre-placed with two wolves (red) and eight sheeps (black), which are first walked by the wolf.",
+  "how-to-play-map": "Map",
+  "wolf-move": "How to move wolf:",
+  "wolf-move-introduction": "The direction of each line can be moved to the next point. If there is a sheep on the first point in front and there is no sheep on the second point, you can move to the second point and eat the sheep; if the first and the first If there are sheep at two points, you cannot move in this direction.",
+  "sheep-move": "There are 22 sheep, 8 are pre-positioned on the map, and the remaining 12 are. The remaining sheep can be placed on a point on the map. When there are no remaining sheep, you can move a point in the direction of the line on the map.",
+  "warning": "There can only be one wolf or sheep at each point.",
+  "victory-or-defeat": "Victory or defeat:",
+  "victory-or-defeat-introduction": "If neither wolf can move, the sheep wins.",
+  "remain-sheep": "Sheep not placed in the map: ",
+  "eat-sheep":"Sheep eaten by wolves: ",
+  "help":"Help"
+}
