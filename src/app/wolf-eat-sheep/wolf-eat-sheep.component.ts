@@ -8,8 +8,29 @@ import { MatDialog } from '@angular/material/dialog';
 import { Bitmap, Graphics, Shadow, Shape, Stage, Ticker } from "@createjs/easeljs";
 import { Node } from './node';
 import { APP_BASE_HREF } from '@angular/common';
+import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
 
 declare let document: any;
+
+class MyAudio {
+  audio;
+  canPlay = true;
+  constructor(public url: string,) {
+    this.audio = new Audio(url);
+  }
+  play() {
+    if (this.canPlay) {
+      this.audio.play();
+    }
+  }
+}
+
+export interface SettingsData {
+  playSoundEffect: boolean;
+  pieceCount: number;
+}
+
+
 @Component({
   selector: 'app-wolf-eat-sheep',
   templateUrl: './wolf-eat-sheep.component.html',
@@ -28,19 +49,31 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
   whoRun = true; // true wolf false sheep
   selectNode: Bitmap;
   remainSheep = 14;
+  defaultAllSheepCount = 22;
   stage: Stage = null;
   r: number = 2; // 棋子大小参数
   lineDistance: number = 0;// 间距,线的距离
   isPlaying = false;
-  audioSheepDied = new Audio(`${this.baseHref}assets/sound/sheep_died.ogg`);
-  audioSheepMove = new Audio(`${this.baseHref}assets/sound/sheep_move.mp3`);
-  audioWolfMove = new Audio(`${this.baseHref}assets/sound/wolf_move.ogg`);
+  audioSheepDied = new MyAudio(`${this.baseHref}assets/sound/sheep_died.ogg`);
+  audioSheepMove = new MyAudio(`${this.baseHref}assets/sound/sheep_move.mp3`);
+  audioWolfMove = new MyAudio(`${this.baseHref}assets/sound/wolf_move.ogg`);
+  defaultSettings: SettingsData = {
+    playSoundEffect: true,
+    pieceCount: 22
+  };
   // audio.play();
   constructor(public dialog: MatDialog, @Inject(APP_BASE_HREF) public baseHref: string) {
   }
 
   ngOnInit() {
-
+    let s = localStorage.getItem('defaultSettings');
+    if (s) { this.defaultSettings = JSON.parse(s) }
+    this.audioSheepDied.canPlay = this.defaultSettings.playSoundEffect;
+    this.audioSheepMove.canPlay = this.defaultSettings.playSoundEffect;
+    this.audioWolfMove.canPlay = this.defaultSettings.playSoundEffect;
+    if (this.defaultSettings.pieceCount) {
+      this.remainSheep = this.defaultSettings.pieceCount - 8
+    }
   }
 
   ngAfterViewInit() {
@@ -53,7 +86,9 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     this.eatSheep = 0;
     this.whoRun = true; // true wolf false sheep
     this.selectNode = null;
-    this.remainSheep = 14;
+    if (this.defaultSettings.pieceCount) {
+      this.remainSheep = this.defaultSettings.pieceCount - 8
+    } else { this.remainSheep = 14; }
     // 开始之前先调屏幕全屏,横屏
     const c: any = document.getElementById('myCanvas');
     this.canvasWidth = document.body.clientWidth;
@@ -375,11 +410,30 @@ export class WolfEatSheepComponent implements OnInit, AfterViewInit {
     } else if (element.mozRequestFullScreen) {
       await element.mozRequestFullScreen();
     }
-    if (screen.orientation.lock)
-      screen.orientation.lock('landscape-primary').then(function (value) {
+    if (screen.orientation.lock) {
+      await screen.orientation.lock('landscape-primary').then(function (value) {
       }, function (e) {
       });
+    }
+
   }
 
+  setting() {
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {
+      data: this.defaultSettings,
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.defaultSettings = result;
+        this.audioSheepDied.canPlay = this.defaultSettings.playSoundEffect;
+        this.audioSheepMove.canPlay = this.defaultSettings.playSoundEffect;
+        this.audioWolfMove.canPlay = this.defaultSettings.playSoundEffect;
+        if (this.defaultSettings.pieceCount) {
+          this.remainSheep = this.defaultSettings.pieceCount - 8
+        }
+      }
+
+    });
+  }
 }

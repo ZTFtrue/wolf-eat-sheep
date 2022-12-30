@@ -1,0 +1,14 @@
+<div class="dialog">
+    <div class="content">
+        <mat-form-field appearance="fill">
+            <mat-label>开始羊的数量</mat-label>
+            <input matInput type="number" [(ngModel)]="data.pieceCount">
+        </mat-form-field>
+        <mat-checkbox class="example-margin" [checked]="data.playSoundEffect"
+            [(ngModel)]="data.playSoundEffect">是否播放音效</mat-checkbox>
+    </div>
+    <div class="bottom-button">
+        <button mat-raised-button (click)="onNoClick()">取消</button>
+        <button mat-raised-button (click)="postiveClick()">确定</button>
+    </div>
+</div>

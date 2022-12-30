@@ -5,7 +5,9 @@
     <div class="run-tip">
       <button mat-flat-button color="primary" style="outline: none"
         (click)="startGame()">{{this.isPlaying?'Repaly':'Play'}}</button>
+
     </div>
+    <button color="primary" style="outline: none" (click)="setting()">{{'setting'|translate}}</button>
     <a routerLink="/help" routerLinkActive="active" ariaCurrentWhenActive="page">{{'help'|translate}}</a>
     <span>{{'eat-sheep'|translate}}: {{this.eatSheep}}</span>
   </div>

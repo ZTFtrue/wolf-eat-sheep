@@ -11,6 +11,7 @@
   "victory-or-defeat": "胜负:",
   "victory-or-defeat-introduction": "如果两只狼均无法移动，羊胜。如果羊被吃光，狼胜。",
   "remain-sheep": "未放入地图的羊 ",
-  "eat-sheep": "吃掉的羊: ",
-  "help": "帮助"
+  "eat-sheep": "吃掉的羊",
+  "help": "帮助",
+  "setting":"设置"
 }

@@ -1,0 +1,15 @@
+.dialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

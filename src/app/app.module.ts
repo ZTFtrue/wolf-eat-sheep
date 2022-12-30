@@ -29,6 +29,7 @@ import { WolfEatSheepHelpComponent } from './wolf-eat-sheep-help/wolf-eat-sheep-
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainComponent,
     WolfEatSheepComponent,
     WolfEatSheepHelpComponent,
+    SettingsDialogComponent,
   ],
   imports: [
     BrowserModule,
