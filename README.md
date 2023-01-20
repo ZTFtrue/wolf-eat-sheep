@@ -11,3 +11,7 @@ JavaScript Canvas Game
 ```bash
  ng deploy --base-href 'https://ztftrue.github.io/wolf-eat-sheep/'
 ```
+
+## BUGs
+
+1. 检查可否走到这个位置， 先记下来
